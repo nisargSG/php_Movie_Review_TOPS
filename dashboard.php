@@ -75,7 +75,8 @@ checkUserAuth();
                                     }
                                     else{
                                         ?>
-                                        <a href="#" class="btn btn-warning">Edit Your Reviews</a>
+                                        <a href="<?php echo("editReview.php?movieId=".$movieId)  ?>" class="btn btn-warning">Edit Your Reviews</a>
+
                                     <?php
                                     }
                                     ?>
