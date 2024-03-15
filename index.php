@@ -3,8 +3,6 @@ include 'dbConfig.php';
 include 'checkUserAuth.php';
 
 
-
-
 if(isset($_COOKIE["userId"])){
     header("Location:dashboard.php");
 }
