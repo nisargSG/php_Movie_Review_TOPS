@@ -23,17 +23,24 @@ checkUserAuth();
 
         <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Active</a>
+                <a class="nav-link" href="logout.php">Logout</a>
             </li>
+            <?php 
+            
+            if($isAdmin==true){
+            ?>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">New</a>
+            </li>
+
+            <?php } ?>
+
+
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
+            
         </ul>
 
     </nav>
@@ -65,20 +72,30 @@ checkUserAuth();
 
                                     
                                     <?php 
-                                    $movieId = $movieRow["id"];
-                                    $sql = "SELECT * FROM `review` where user_id='$userId' and movie_id='$movieId'";
-                                    $result = $dbConn->query($sql);
-                                    if ($result->num_rows == 0) {?>
-                                        <a href="<?php echo("addReview.php?movieId=".$movieId)  ?>" class="btn btn-primary">Post Your Reviews</a>
+                                    if($isAdmin==true){
+                                        ?>
+
+                                        <p>edit</p>
+                                        <p>delete</p>
 
                                     <?php
                                     }
                                     else{
-                                        ?>
-                                        <a href="<?php echo("editReview.php?movieId=".$movieId)  ?>" class="btn btn-warning">Edit Your Reviews</a>
+                                        $movieId = $movieRow["id"];
+                                        $sql = "SELECT * FROM `review` where user_id='$userId' and movie_id='$movieId'";
+                                        $result = $dbConn->query($sql);
+                                        if ($result->num_rows == 0) {?>
+                                            <a href="<?php echo("addReview.php?movieId=".$movieId)  ?>" class="btn btn-primary">Post Your Reviews</a>
 
-                                    <?php
+                                        <?php
+                                        }
+                                        else{
+                                            ?>
+                                            <a href="<?php echo("editReview.php?movieId=".$movieId)  ?>" class="btn btn-warning">Edit Your Reviews</a>
+                                        <?php
+                                        }
                                     }
+                                
                                     ?>
 
                                     

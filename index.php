@@ -33,7 +33,6 @@ if(isset($_COOKIE["userId"])){
             $email=$_POST["email"];
             $password=$_POST["password"];
 
-
             $sql = "SELECT * FROM user where email='$email' AND password='$password'";
             $result = $dbConn->query($sql);
             if($result->num_rows>0){
