@@ -75,8 +75,8 @@ checkUserAuth();
                                     if($isAdmin==true){
                                         ?>
 
-                                        <p>edit</p>
-                                        <p>delete</p>
+                                        <a href="editMovie.php?movieId=<?= $movieRow["id"] ?>" class="btn btn-warning">edit</a>
+                                        <a class="btn btn-danger">delete</a>
 
                                     <?php
                                     }
@@ -91,7 +91,7 @@ checkUserAuth();
                                         }
                                         else{
                                             ?>
-                                            <a href="<?php echo("editReview.php?movieId=".$movieId)  ?>" class="btn btn-warning">Edit Your Reviews</a>
+                                            <a href="<?= "editReview.php?movieId=".$movieId ?>" class="btn btn-warning">Edit Your Reviews</a>
                                         <?php
                                         }
                                     }
