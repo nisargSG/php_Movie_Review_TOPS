@@ -20,7 +20,6 @@ else if(isset($_POST["movie_id"]) && isset($_POST["title"]) && isset($_POST["des
     $description=$_POST["description"];
     $image=$_POST["image"];
 
-    echo("UPDATE movies SET title='$title',description='$description',image='$image' WHERE id='$movieId'");
 
     $dbConn->query("UPDATE movies SET title='$title',description='$description',image='$image' WHERE id='$movieId'");
     header("Location:dashboard.php");

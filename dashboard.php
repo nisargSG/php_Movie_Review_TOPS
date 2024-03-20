@@ -31,7 +31,7 @@ checkUserAuth();
             ?>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">New</a>
+                <a class="nav-link" href="addMovie.php">New</a>
             </li>
 
             <?php } ?>
