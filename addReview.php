@@ -68,6 +68,7 @@ else{
 
         <div class="jumbotron">
             
+            <h2 class="company_name"><?= "Hello ".$_SESSION["name"]  ?></h2>
             <div class="row">
 
                 <div class="col-lg-6 ">

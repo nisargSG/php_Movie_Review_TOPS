@@ -19,7 +19,7 @@ checkUserAuth();
 <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
-        <h2 class="company_name">Compnay Name</h2>
+        <h2 class="company_name"><?= "Hello ".$_SESSION["name"]  ?></h2>
 
         <ul class="navbar-nav">
             <li class="nav-item active">
