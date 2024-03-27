@@ -49,7 +49,7 @@ checkUserAuth();
 
         <?php
             
-            $sql = "SELECT * FROM movies";
+            $sql = ($isAdmin==true)?"SELECT * FROM movies":"SELECT * FROM movies WHERE is_deleted=false";
             $moviesResult = $dbConn->query($sql);
 
         if ($moviesResult->num_rows > 0) { ?>
@@ -57,6 +57,8 @@ checkUserAuth();
                 <div class="row">
                     
                     <?php while ($movieRow = $moviesResult->fetch_assoc()) { ?>
+
+
 
                         <div class="col-md-5 p-3">
                             <div class="card" style="width:400px">
@@ -73,11 +75,22 @@ checkUserAuth();
                                     
                                     <?php 
                                     if($isAdmin==true){
+
+                                        if($movieRow["is_deleted"]==0){
                                         ?>
-
                                         <a href="editMovie.php?movieId=<?= $movieRow["id"] ?>" class="btn btn-warning">edit</a>
-                                        <a class="btn btn-danger">delete</a>
+                                        <a  href="deleteMovie.php?movieId=<?= $movieRow["id"] ?>" class="btn btn-danger">delete</a>
 
+                                        
+
+                                       <?php }
+                                        else{ ?>
+                                        <div class="alert alert-danger" role="alert">
+                                            This Movie Was Deleted
+                                        </div>
+                                       <?php } ?>
+
+                                        
                                     <?php
                                     }
                                     else{
@@ -102,6 +115,9 @@ checkUserAuth();
                                 </div>
                             </div>
                         </div>
+
+
+
                         <?php
                     }
                         ?>
