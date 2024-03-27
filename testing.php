@@ -4,34 +4,33 @@ error_reporting(E_ERROR | E_PARSE);
 class Book{
     public $name;
     public $price;
-}
 
-$b1 = new Book();
-$b1->name="B1";
-$b1->price=100;
+    //speicla function , execute - one time when onject is being created
+    function __construct($rname,$rprice) {
+        $this->name = $rname;
+        $this->price=$rprice;
 
-$b2 = new Book();
-$b2->name="B2";
-$b2->price=2000;
+    }
 
-$b3 = new Book();
-$b3->name="B3";
-$b3->price=200;
-
-$books = array();
-
-array_push($books,$b1);
-array_push($books,$b2);
-array_push($books,$b3);
-$start=0;
-$end=count($books)-1 ;   //2
-
-for($i=$start;$i<=$end;$i++){
-    if($books[$i]->price>500){
-        echo($books[$i]->name);
+    function checkMyPrice(){
+        if($this->price>500){
+            echo($this->name);
+        }
     }
 }
-echo("End");
+
+$b1 = new Book("bookname1",1100);
+$b2 = new Book("bookname2",200);
+$b3 = new Book("bookname3",3000);
+$b4 = new Book("bookname4",400);
+
+$array = array($b1,$b2,$b3,$b4);
 
 
+
+foreach ($array as $book) {
+  
+   $book->checkMyPrice();
+
+}
 ?>
