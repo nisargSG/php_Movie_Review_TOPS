@@ -21,7 +21,11 @@ class Book{
 
 $b1 = new Book("bookname1",1100);
 $b2 = new Book("bookname2",200);
-$b3 = new Book("bookname3",3000);
+$b3 = new Book("bookname3",3000)
+
+
+
+;
 $b4 = new Book("bookname4",400);
 
 $array = array($b1,$b2,$b3,$b4);
